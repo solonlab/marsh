@@ -56,8 +56,6 @@
         <wood.version>1.4.2</wood.version>
         <mongox.version>1.1.2</mongox.version>
         <redisx.version>1.8.2</redisx.version>
-
-        <okhttp.version>3.14.9</okhttp.version>
     </properties>
 
     <dependencyManagement>
@@ -124,12 +122,6 @@
                 <groupId>org.noear</groupId>
                 <artifactId>water.client</artifactId>
                 <version>${water.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.squareup.okhttp3</groupId>
-                <artifactId>okhttp</artifactId>
-                <version>${okhttp.version}</version>
             </dependency>
 
             <dependency>
