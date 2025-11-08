@@ -7,7 +7,7 @@ import admindemo2.model.view.TagCountsVo;
 import admindemo2.model.data.water_cfg.ConfigDo;
 import admindemo2.model.data.water_cfg.LoggerDo;
 import admindemo2.model.data.water_cfg.WhitelistDo;
-import org.noear.snack.ONode;
+import org.noear.snack4.ONode;
 import org.noear.water.WaterClient;
 import org.noear.water.dso.WhitelistApi;
 import org.noear.water.utils.TextUtils;

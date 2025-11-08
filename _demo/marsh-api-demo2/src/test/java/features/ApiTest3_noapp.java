@@ -5,7 +5,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.impl.DefaultClaims;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-import org.noear.snack.ONode;
+import org.noear.snack4.ONode;
 import org.noear.solon.net.http.HttpResponse;
 import org.noear.solon.sessionstate.jwt.JwtUtils;
 import org.noear.solon.test.HttpTester;
@@ -30,7 +30,7 @@ public class ApiTest3_noapp extends HttpTester {
 
     public ONode call(String apiName, Map<String, Object> args) throws Exception {
 
-        String json0 = ONode.stringify(args);
+        String json0 = ONode.serialize(args);
         String json_encoded0 = EncryptUtils.aesEncrypt(json0, app_secret_key);
 
         //生成领牌
@@ -71,11 +71,11 @@ public class ApiTest3_noapp extends HttpTester {
 
         System.out.println("Decoded: " + json);
 
-        return ONode.loadStr(json);
+        return ONode.ofJson(json);
     }
 
     public ONode call(String method, String args) throws Exception {
-        return call(method, (Map<String, Object>) ONode.loadStr(args).toData());
+        return call(method, (Map<String, Object>) ONode.ofJson(args).toData());
     }
 
 

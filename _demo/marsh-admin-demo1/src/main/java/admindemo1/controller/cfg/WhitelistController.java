@@ -5,6 +5,7 @@ import admindemo1.dso.TagUtil;
 import admindemo1.dso.db.DbWaterCfgApi;
 import admindemo1.model.view.TagCountsVo;
 import admindemo1.model.data.water_cfg.WhitelistDo;
+import org.noear.snack4.codec.TypeRef;
 import org.noear.solon.annotation.Controller;
 import org.noear.solon.annotation.Mapping;
 import org.noear.solon.core.handle.Context;
@@ -128,7 +129,7 @@ public class WhitelistController extends BaseController2 {
             return Result.failure("数据不对！");
         }
 
-        List<WhitelistDo> list = entity.data.toObjectList(WhitelistDo.class);
+        List<WhitelistDo> list = entity.data.toBean(TypeRef.listOf(WhitelistDo.class));
 
         for (WhitelistDo m : list) {
             DbWaterCfgApi.impWhitelist(tag, m);

@@ -1,6 +1,6 @@
 package org.noear.marsh.base.utils;
 
-import org.noear.snack.ONode;
+import org.noear.snack4.ONode;
 import org.noear.solon.cloud.CloudClient;
 import org.noear.solon.cloud.model.Instance;
 import org.noear.solon.logging.event.Level;
@@ -83,7 +83,7 @@ public class BehaviorUtils {
         StringBuilder content = new StringBuilder();
 
         content.append(schema).append("::").append(cmd.text);
-        content.append("<n-l>$$$").append(ONode.stringify(cmd.paramMap())).append("</n-l>");
+        content.append("<n-l>$$$").append(ONode.serialize(cmd.paramMap())).append("</n-l>");
 
         Map<String, String> metaInfo = new LinkedHashMap<>();
         metaInfo.put("tag", String.valueOf(seconds));

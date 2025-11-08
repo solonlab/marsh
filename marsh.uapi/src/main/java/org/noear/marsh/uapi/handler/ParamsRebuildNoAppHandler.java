@@ -2,7 +2,7 @@ package org.noear.marsh.uapi.handler;
 
 import org.noear.marsh.uapi.Uapi;
 import org.noear.marsh.uapi.common.Attrs;
-import org.noear.snack.ONode;
+import org.noear.snack4.ONode;
 import org.noear.solon.Utils;
 import org.noear.solon.core.handle.Context;
 import org.noear.solon.core.handle.Handler;
@@ -33,12 +33,12 @@ public class ParamsRebuildNoAppHandler  implements Handler {
 
             //解析数据
             //
-            ONode tmp = ONode.load(orgInput);
+            ONode tmp = ONode.ofJson(orgInput);
 
             if (tmp.isObject()) {
                 //转到上下文参数
                 //
-                tmp.obj().forEach((k, v) -> {
+                tmp.getObjectUnsafe().forEach((k, v) -> {
                     if (v.isValue()) {
                         ctx.paramMap().add(k, v.getString());
                     }

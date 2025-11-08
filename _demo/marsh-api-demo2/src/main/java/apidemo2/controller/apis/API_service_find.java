@@ -8,7 +8,7 @@ import apidemo2.model.data.WaterCfgPropertiesDo;
 import apidemo2.model.data.WaterRegServiceDo;
 import apidemo2.model.view.DiscoverVo;
 import apidemo2.model.view.ServiceVo;
-import org.noear.snack.ONode;
+import org.noear.snack4.ONode;
 import org.noear.solon.Utils;
 import org.noear.solon.annotation.Component;
 import org.noear.solon.annotation.Inject;
@@ -49,7 +49,7 @@ public class API_service_find extends ApiBase {
                 throw UapiCodes.CODE_4001012;
             }
 
-            ONode node = ONode.loadStr(configD.value);
+            ONode node = ONode.ofJson(configD.value);
             discoverVo.setUrl(node.get("url").getString());
             discoverVo.setPolicy(node.get("policy").getString());
             if (Utils.isEmpty(discoverVo.getPolicy())) {

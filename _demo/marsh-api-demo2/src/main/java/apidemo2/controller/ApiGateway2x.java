@@ -1,7 +1,7 @@
 package apidemo2.controller;
 
 import apidemo2.controller.interceptor.*;
-import org.noear.snack.ONode;
+import org.noear.snack4.ONode;
 import org.noear.solon.Utils;
 import org.noear.solon.annotation.Controller;
 import org.noear.solon.annotation.Mapping;
@@ -37,13 +37,13 @@ public class ApiGateway2x extends UapiGateway {
             String json = new String(Base64.getDecoder().decode(josn_b64));
             c.bodyNew(json);
 
-            ONode node = ONode.loadStr(json);
+            ONode node = ONode.ofJson(json);
 
             //1.设定新路径（网关，将使用新路径做路由）
             c.pathNew(PathUtil.mergePath("/", node.get("method").getString()));
 
             //2.转换参数
-            node.get("data").forEach((k, v) -> {
+            node.get("data").getObject().forEach((k, v) -> {
                 c.paramMap().add(k, v.getString());
             });
 

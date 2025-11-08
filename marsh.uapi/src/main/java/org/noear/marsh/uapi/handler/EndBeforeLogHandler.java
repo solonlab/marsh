@@ -3,7 +3,7 @@ package org.noear.marsh.uapi.handler;
 import io.jsonwebtoken.Claims;
 import org.noear.marsh.base.GlobalConfig;
 import org.noear.marsh.base.utils.Timecount;
-import org.noear.snack.ONode;
+import org.noear.snack4.ONode;
 import org.noear.solon.Solon;
 import org.noear.solon.Utils;
 import org.noear.solon.core.handle.Context;
@@ -87,7 +87,7 @@ public class EndBeforeLogHandler implements Handler {
         //构建输入项
         String orgInput = uapi.getOrgInput();
         if (null == orgInput) {
-            orgInput = ONode.stringify(uapi.context().paramMap());
+            orgInput = ONode.serialize(uapi.context().paramMap());
         }
 
         if (inputLimitSize > 0) {
@@ -104,7 +104,7 @@ public class EndBeforeLogHandler implements Handler {
             logInput.append("> Token: ").append(org_token).append("\r\n");
             try {
                 Claims tmp = JwtUtils.parseJwt(org_token);
-                logInput.append("> Token.Val: ").append(ONode.stringify(tmp)).append("\r\n");
+                logInput.append("> Token.Val: ").append(ONode.serialize(tmp)).append("\r\n");
             } catch (Throwable ex) {
             }
         }
@@ -127,7 +127,7 @@ public class EndBeforeLogHandler implements Handler {
             logOutput.append("< Token: ").append(out_token).append("\r\n");
             try {
                 Claims tmp = JwtUtils.parseJwt(out_token);
-                logOutput.append("< Token.Val: ").append(ONode.stringify(tmp)).append("\r\n");
+                logOutput.append("< Token.Val: ").append(ONode.serialize(tmp)).append("\r\n");
             } catch (Throwable ex) {
 
             }
@@ -178,7 +178,7 @@ public class EndBeforeLogHandler implements Handler {
         //构建输入项
         String orgInput = uapi.getOrgInput();
         if (null == orgInput) {
-            orgInput = ONode.stringify(uapi.context().paramMap());
+            orgInput = ONode.serialize(uapi.context().paramMap());
         }
 
         if (inputLimitSize > 0) {
@@ -195,7 +195,7 @@ public class EndBeforeLogHandler implements Handler {
             logInput.append("> Token: ").append(org_token).append("\r\n");
             try {
                 Claims tmp = JwtUtils.parseJwt(org_token);
-                logInput.append("> Token.Val: ").append(ONode.stringify(tmp)).append("\r\n");
+                logInput.append("> Token.Val: ").append(ONode.serialize(tmp)).append("\r\n");
             } catch (Throwable ex) {
             }
         }

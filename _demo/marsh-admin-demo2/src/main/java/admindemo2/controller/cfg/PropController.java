@@ -5,6 +5,7 @@ import admindemo2.dso.db.DbWaterCfgApi;
 import admindemo2.dso.TagUtil;
 import admindemo2.model.view.TagCountsVo;
 import admindemo2.model.data.water_cfg.ConfigDo;
+import org.noear.snack4.codec.TypeRef;
 import org.noear.solon.annotation.Controller;
 import org.noear.solon.annotation.Mapping;
 import org.noear.solon.core.handle.Context;
@@ -116,7 +117,7 @@ public class PropController extends BaseController2 {
             return Result.failure("数据不对！");
         }
 
-        List<ConfigDo> list = entity.data.toObjectList(ConfigDo.class);
+        List<ConfigDo> list = entity.data.toBean(TypeRef.listOf(ConfigDo.class));
 
         for (ConfigDo m : list) {
             DbWaterCfgApi.impConfig(tag, m);

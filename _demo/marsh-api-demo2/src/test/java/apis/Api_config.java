@@ -3,8 +3,8 @@ package apis;
 import apidemo2.App;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-import org.noear.snack.ONode;
-import org.noear.solon.test.KvMap;
+import org.noear.snack4.ONode;
+import org.noear.solon.Utils;
 import org.noear.solon.test.SolonTest;
 
 /**
@@ -23,17 +23,17 @@ public class Api_config extends ApiTestBaseOfApp{
 
     @Test
     public void config_get() throws Exception {
-        ONode node = call("config.get", new KvMap().set("tag", "demo"));
+        ONode node = call("config.get", Utils.asMap("tag", "demo"));
 
         assert node.get("code").getInt() == 200;
-        assert node.get("data").count() > 0;
+        assert node.get("data").size() > 0;
     }
 
     @Test
     public void config2_get() throws Exception {
-        ONode node = call("config/config.get", new KvMap().set("tag", "demo"));
+        ONode node = call("config/config.get", Utils.asMap("tag", "demo"));
 
         assert node.get("code").getInt() == 200;
-        assert node.get("data").count() > 0;
+        assert node.get("data").size() > 0;
     }
 }

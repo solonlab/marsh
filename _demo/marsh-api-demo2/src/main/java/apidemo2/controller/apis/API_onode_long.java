@@ -1,7 +1,7 @@
 package apidemo2.controller.apis;
 
 import apidemo2.controller.ApiBase;
-import org.noear.snack.ONode;
+import org.noear.snack4.ONode;
 import org.noear.solon.annotation.Component;
 import org.noear.solon.annotation.Mapping;
 

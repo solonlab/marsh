@@ -4,7 +4,8 @@ import apidemo2.App;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.impl.DefaultClaims;
 import org.junit.jupiter.api.Test;
-import org.noear.snack.ONode;
+import org.noear.snack4.ONode;
+import org.noear.solon.Utils;
 import org.noear.solon.net.http.HttpResponse;
 import org.noear.solon.sessionstate.jwt.JwtUtils;
 import org.noear.solon.test.*;
@@ -27,7 +28,7 @@ public class ApiTest3x extends HttpTester {
         args.put(Attrs.g_lang, "en_US");
         args.put(Attrs.g_deviceId, "e0a953c3ee6040eaa9fae2b667060e09");
 
-        String json0 = ONode.stringify(args);
+        String json0 = ONode.serialize(args);
         String json_encoded0 = EncryptUtils.aesEncrypt(json0, app_secret_key);
 
         //生成领牌
@@ -69,11 +70,11 @@ public class ApiTest3x extends HttpTester {
 
         System.out.println("Decoded: " + json);
 
-        return ONode.loadStr(json);
+        return ONode.ofJson(json);
     }
 
     public ONode call(String method, String args) throws Exception {
-        return call(method, (Map<String, Object>) ONode.loadStr(args).toData());
+        return call(method, (Map<String, Object>) ONode.ofJson(args).toData());
     }
 
 
@@ -87,10 +88,10 @@ public class ApiTest3x extends HttpTester {
 
     @Test
     public void config_get() throws Exception {
-        ONode node = call("config.get", new KvMap().set("tag", "demo"));
+        ONode node = call("config.get", Utils.asMap("tag", "demo"));
 
         assert node.get("code").getInt() == 200;
-        assert node.get("data").count() > 0;
+        assert node.get("data").size() > 0;
     }
 
     @Test

@@ -3,7 +3,7 @@ package apis;
 import apidemo2.App;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-import org.noear.snack.ONode;
+import org.noear.snack4.ONode;
 import org.noear.solon.test.SolonTest;
 
 /**

@@ -1,6 +1,6 @@
 package org.noear.marsh.uapi;
 
-import org.noear.snack.core.utils.StringUtil;
+import org.noear.snack4.util.Asserts;
 import org.noear.solon.Solon;
 import org.noear.solon.Utils;
 import org.noear.solon.core.event.EventBus;
@@ -109,7 +109,7 @@ public class Uapi {
 
             if (Utils.isNotEmpty(appStr)) {
                 try {
-                    if (StringUtil.isNumber(appStr)) {
+                    if (Asserts.isNumber(appStr)) {
                         _app = getAppById(Integer.parseInt(appStr));
                     } else {
                         _app = getAppByKey(appStr);

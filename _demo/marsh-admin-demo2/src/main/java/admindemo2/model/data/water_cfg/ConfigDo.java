@@ -4,7 +4,7 @@ import admindemo2.dso.ConfigType;
 import com.zaxxer.hikari.HikariDataSource;
 import lombok.Getter;
 import org.noear.redisx.RedisClient;
-import org.noear.snack.ONode;
+import org.noear.snack4.ONode;
 import org.noear.water.utils.ConfigUtils;
 import org.noear.water.utils.TextUtils;
 import org.noear.wood.DbContext;

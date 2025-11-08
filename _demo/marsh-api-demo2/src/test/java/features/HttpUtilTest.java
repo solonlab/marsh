@@ -3,7 +3,7 @@ package features;
 import apidemo2.App;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-import org.noear.snack.ONode;
+import org.noear.snack4.ONode;
 import org.noear.solon.net.http.HttpUtils;
 import org.noear.solon.test.SolonTest;
 
@@ -19,6 +19,6 @@ public class HttpUtilTest {
     public void test() throws IOException {
         String json = HttpUtils.http("demoapi", "/api/v1/app/hello").data("name", "marsh").post();
         System.out.println(json);
-        assert ONode.loadStr(json).get("data").getString().equals("hello marsh");
+        assert ONode.ofJson(json).get("data").getString().equals("hello marsh");
     }
 }

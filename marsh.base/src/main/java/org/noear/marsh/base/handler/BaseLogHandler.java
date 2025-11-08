@@ -1,6 +1,6 @@
 package org.noear.marsh.base.handler;
 
-import org.noear.snack.ONode;
+import org.noear.snack4.ONode;
 import org.noear.solon.core.handle.Context;
 import org.noear.solon.core.handle.Handler;
 import org.noear.solon.logging.utils.TagsMDC;
@@ -26,18 +26,18 @@ public class BaseLogHandler implements Handler {
                 if (ctx.result instanceof String) {
                     output = (String) ctx.result;
                 } else {
-                    output = ONode.stringify(ctx.result);
+                    output = ONode.serialize(ctx.result);
                 }
             }
 
             log.info("> Header: {}\n> Param: {}\n\n< Body: {}",
-                    ONode.stringify(ctx.headerMap()),
-                    ONode.stringify(ctx.paramMap()),
+                    ONode.serialize(ctx.headerMap()),
+                    ONode.serialize(ctx.paramMap()),
                     output);
         } else {
             log.error("> Header: {}\n> Param: {}\n\n< Error: {}",
-                    ONode.stringify(ctx.headerMap()),
-                    ONode.stringify(ctx.paramMap()),
+                    ONode.serialize(ctx.headerMap()),
+                    ONode.serialize(ctx.paramMap()),
                     ctx.errors);
         }
     }

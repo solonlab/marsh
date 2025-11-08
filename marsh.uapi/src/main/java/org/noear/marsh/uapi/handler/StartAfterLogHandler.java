@@ -1,7 +1,7 @@
 package org.noear.marsh.uapi.handler;
 
 import org.noear.marsh.base.GlobalConfig;
-import org.noear.snack.ONode;
+import org.noear.snack4.ONode;
 import org.noear.solon.Solon;
 import org.noear.solon.Utils;
 import org.noear.solon.core.handle.Context;
@@ -40,8 +40,8 @@ public class StartAfterLogHandler implements Handler {
     @Override
     public void handle(Context ctx) throws Throwable {
         logger.info("> Header: {}\n> Param: {}\n> Body: {}",
-                limit(ONode.stringify(ctx.headerMap())),
-                limit(ONode.stringify(ctx.paramMap())),
+                limit(ONode.serialize(ctx.headerMap())),
+                limit(ONode.serialize(ctx.paramMap())),
                 limit(ctx.body()));
     }
 

@@ -2,7 +2,7 @@ package features;
 
 import apidemo0.App;
 import org.junit.jupiter.api.Test;
-import org.noear.snack.ONode;
+import org.noear.snack4.ONode;
 import org.noear.solon.test.HttpTester;
 import org.noear.solon.test.SolonTest;
 import org.noear.marsh.uapi.common.Attrs;
@@ -24,11 +24,11 @@ public class ApiTest extends HttpTester {
                 .data(args)
                 .post();
 
-        return ONode.loadStr(json);
+        return ONode.ofJson(json);
     }
 
     public ONode call(String method, String args) throws Exception {
-        return call(method, (Map<String, Object>) ONode.loadStr(args).toData());
+        return call(method, (Map<String, Object>) ONode.ofJson(args).toData());
     }
 
     @Test

@@ -2,7 +2,8 @@ package features;
 
 import apidemo2.App;
 import org.junit.jupiter.api.Test;
-import org.noear.snack.ONode;
+import org.noear.snack4.ONode;
+import org.noear.solon.Utils;
 import org.noear.solon.test.*;
 import org.noear.marsh.uapi.common.Attrs;
 
@@ -30,34 +31,34 @@ public class ApiTest2x extends HttpTester {
 
         String josn_b64 = path("/api/v2/web/")
                 .header(Attrs.h_token, "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMiwiaXNzIjoiZGVtb2FwaSIsImV4cCI6MTYyNDg2MTQ5OCwiaWF0IjoxNjI0ODU0Mjk4LCJqdGkiOiIifQ.GeZDjTFova9aonnWjRm_3Bb72sHM4ss0zjgB_gv4aG8")
-                .header("Content-type","application/json")
+                .header("Content-type", "application/json")
                 .bodyTxt(json_b640)
                 .post();
 
         String json = new String(Base64.getDecoder().decode(josn_b64));
 
-        System.out.println("Decoded: "+json);
+        System.out.println("Decoded: " + json);
 
-        return ONode.loadStr(json);
+        return ONode.ofJson(json);
     }
 
     public ONode call(String method, String args) throws Exception {
-        return call(method, (Map<String, Object>) ONode.loadStr(args).toData());
+        return call(method, (Map<String, Object>) ONode.ofJson(args).toData());
     }
 
 
     @Test
     public void config_set() throws Exception {
-        ONode node = call("config.set", new KvMap().set("tag", "demo").set("key","test").set("value","test"));
+        ONode node = call("config.set", Utils.asMap("tag", "demo", "key", "test", "value", "test"));
 
         assert node.get("code").getInt() == 200;
     }
 
     @Test
     public void config_get() throws Exception {
-        ONode node = call("config.get", new KvMap().set("tag", "demo"));
+        ONode node = call("config.get", Utils.asMap("tag", "demo"));
 
         assert node.get("code").getInt() == 200;
-        assert node.get("data").count() > 0;
+        assert node.get("data").size() > 0;
     }
 }
