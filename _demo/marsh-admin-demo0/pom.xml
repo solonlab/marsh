@@ -15,7 +15,7 @@
     <parent>
         <groupId>org.noear</groupId>
         <artifactId>marsh-parent</artifactId>
-        <version>1.9.1</version>
+        <version>1.10.0</version>
         <relativePath>../../marsh-parent/pom.xml</relativePath>
     </parent>
 
@@ -29,7 +29,7 @@
         <!-- 如果 gritapi 不方便连，可以引入grit.server(同时要加载配置：grit:grit.yml) -->
         <dependency>
             <groupId>org.noear</groupId>
-            <artifactId>grit.server</artifactId>
+            <artifactId>grit-server-api</artifactId>
             <version>${grit.version}</version>
         </dependency>
 

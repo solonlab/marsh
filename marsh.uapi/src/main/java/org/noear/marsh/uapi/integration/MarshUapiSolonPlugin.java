@@ -1,4 +1,4 @@
-package org.noear.marsh.uapi;
+package org.noear.marsh.uapi.integration;
 
 import org.noear.marsh.uapi.app.impl.LocalAppFactoryImpl;
 import org.noear.solon.cloud.impl.CloudI18nBundleFactory;
@@ -12,7 +12,7 @@ import org.noear.marsh.uapi.app.impl.WaterAppFactoryImpl;
 import org.noear.solon.core.Plugin;
 import org.noear.solon.validation.ValidatorManager;
 
-public class XPluginImp implements Plugin {
+public class MarshUapiSolonPlugin implements Plugin {
     @Override
     public void start(AppContext context) {
         ValidatorManager.setFailureHandler(new org.noear.marsh.uapi.validation.ValidatorFailureHandlerNew());

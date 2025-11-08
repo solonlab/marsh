@@ -1,5 +1,6 @@
-package org.noear.marsh.base;
+package org.noear.marsh.base.integration;
 
+import org.noear.marsh.base.GlobalConfig;
 import org.noear.marsh.base.utils.BehaviorUtils;
 import org.noear.nami.NamiAttachment;
 import org.noear.snack4.ONode;
@@ -23,9 +24,9 @@ import org.slf4j.MDC;
 /**
  * @author noear 2021/2/13 created
  */
-public class XPluginImp implements Plugin {
+public class MarshBaseSolonPlugin implements Plugin {
     static final String clzGritClient = "org.noear.grit.client.GritClient";
-    static Logger log = LoggerFactory.getLogger(XPluginImp.class);
+    static Logger log = LoggerFactory.getLogger(MarshBaseSolonPlugin.class);
 
     boolean isDebugMode;
     boolean isWoodStyle2;

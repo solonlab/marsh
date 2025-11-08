@@ -5,7 +5,7 @@
 ```xml
 <dependency>
     <groupId>org.noear</groupId>
-    <artifactId>grit.server</artifactId>
+    <artifactId>grit-server-api</artifactId>
     <version>${grit.version}</version>
 </dependency>
 ```
