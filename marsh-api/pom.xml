@@ -12,6 +12,7 @@
     </parent>
 
     <artifactId>marsh-api</artifactId>
+    <name>${project.artifactId}</name>
     <packaging>jar</packaging>
 
     <description>Java project for marsh-api</description>

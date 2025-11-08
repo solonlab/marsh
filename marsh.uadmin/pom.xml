@@ -10,7 +10,9 @@
         <version>1.10.0</version>
         <relativePath>../marsh-parent/pom.xml</relativePath>
     </parent>
+
     <artifactId>marsh.uadmin</artifactId>
+    <name>${project.artifactId}</name>
     <packaging>jar</packaging>
 
     <description>Java project for marsh.uadmin</description>
